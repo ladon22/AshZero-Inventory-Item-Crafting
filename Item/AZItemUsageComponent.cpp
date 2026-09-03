@@ -48,7 +48,7 @@ void UAZItemUsageComponent::SetupInputBinding(class UEnhancedInputComponent* Pla
 	UAZDataAsset* InputData = OwnerCharacter->InputDataAsset;
 	if (InputData == nullptr) return;
 
-	// 1. ¸ÅÇÎ ÄÁÅØ½ºÆ® Ãß°¡ (ÄÁÆ®·Ñ·¯°¡ È®½ÇÈ÷ Á¸ÀçÇÒ ¶§ ½ÇÇàµÊ)
+	// 1. ë§¤í•‘ ì»¨í…ìŠ¤íŠ¸ ì¶”ê°€
 
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(OwningPC->GetLocalPlayer()))
 	{
@@ -56,7 +56,7 @@ void UAZItemUsageComponent::SetupInputBinding(class UEnhancedInputComponent* Pla
 	}
 
 
-	// 2. ¾×¼Ç ¹ÙÀÎµù (ÀÎÀÚ·Î ¹ŞÀº ÄÄÆ÷³ÍÆ® »ç¿ë)
+	// 2. ì•¡ì…˜ ë°”ì¸ë”©
 	const UInputAction* QuickSlotNum1Action = InputData->FindInputActionByTag(AZGameplayTags::Input_Action_Num1);
 	if (QuickSlotNum1Action)
 		PlayerInputComponent->BindAction(QuickSlotNum1Action, ETriggerEvent::Started, this, &UAZItemUsageComponent::OnQuickSlot_1);

@@ -140,7 +140,7 @@ bool UAZStoreSubsystem::BuyItem(AAZPlayerController* Requestor, int32 ItemID, in
 
     int32 MaxStack = ItemaDataRow->MaxStack;
     int32 FinalCost = 0;
-    // ������ ����
+
     while (CurrentQuantity > 0)
     {
         UAZItemBase* NewItem = NewObject<UAZItemBase>(PC->StashComp);

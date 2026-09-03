@@ -59,8 +59,6 @@ public:
 	UFUNCTION(BlueprintPure, Category = "AZ|Crafting")
 	bool IsCraftingReadyToCollect(int32 JobID) const;
 
-	// 이 제작대가 연결된 창고. 서버에서 요청자의 StashComp와 비교해 "이 제작대는 내 것인가"를
-	// 검증하는 용도로 사용합니다 (AAZPlayerController::StartCrafting_Server 등).
 	UAZStashComponent* GetLinkedStashComponent() const { return LinkedStashComponent; }
 private:
 	void FinishCrafting(int32 JobID);

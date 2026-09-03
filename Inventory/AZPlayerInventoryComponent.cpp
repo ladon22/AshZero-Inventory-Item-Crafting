@@ -124,9 +124,9 @@ void UAZPlayerInventoryComponent::InitPlayerInventoryComponent()
 	
 
 	
-	//·Îºñ¿¡¼­ °¡¹æ ¾ÆÀÌÅÛÀ» ÀåÂøÇÏ°í µé¾î¿Ã ¶§ ·ÎÁ÷ µû·Î ±¸Çö
+	//ë¡œë¹„ì—ì„œ ê°€ë°© ì•„ì´í…œì„ ì¥ì°©í•˜ê³  ë“¤ì–´ì˜¬ ë•Œ ë¡œì§ ë”°ë¡œ êµ¬í˜„
 
-	//·Îºñ¿¡¼­ °¡¹æ ¾ÆÀÌÅÛÀ» ÀåÂøÇÏÁö ¾Ê¾ÒÀ» ¶§ ±âº»À¸·Î ÀÌ °¡¹æÀ» ÀåÂø
+	//ë¡œë¹„ì—ì„œ ê°€ë°© ì•„ì´í…œì„ ì¥ì°©í•˜ì§€ ì•Šì•˜ì„ ë•Œ ê¸°ë³¸ìœ¼ë¡œ ì´ ê°€ë°©ì„ ì¥ì°©
 	if (CurrentBackpack == nullptr)
 	{
 		const FBagDefinition* BagShape = DataManger->GetBagShapeByName("603_1");
@@ -210,13 +210,13 @@ void UAZPlayerInventoryComponent::SetupInputBinding(class UEnhancedInputComponen
 	AAZPlayerCharacter* OwnerCharacter = Cast<AAZPlayerCharacter>(PC->GetPawn());
 	if (OwnerCharacter == nullptr) return;
 
-	// ·ÎÄÃ ÄÁÆ®·Ñ·¯ÀÎÁö È®ÀÎ (¼­¹öÀÇ AI µîÀº ÀÔ·Â ºÒÇÊ¿ä)
+	// ë¡œì»¬ ì»¨íŠ¸ë¡¤ëŸ¬ì¸ì§€ í™•ì¸ (ì„œë²„ì˜ AI ë“±ì€ ì…ë ¥ ë¶ˆí•„ìš”)
 	//if (!OwnerCharacter->IsLocallyControlled()) return;
 
 	UAZDataAsset* InputData = OwnerCharacter->InputDataAsset;
 	if (InputData == nullptr) return;
 
-	// 1. ¸ÅÇÎ ÄÁÅØ½ºÆ® Ãß°¡ (ÄÁÆ®·Ñ·¯°¡ È®½ÇÈ÷ Á¸ÀçÇÒ ¶§ ½ÇÇàµÊ)
+	// 1. ë§¤í•‘ ì»¨í…ìŠ¤íŠ¸ ì¶”ê°€
 
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer()))
 	{
@@ -224,7 +224,7 @@ void UAZPlayerInventoryComponent::SetupInputBinding(class UEnhancedInputComponen
 	}
 	
 
-	// 2. ¾×¼Ç ¹ÙÀÎµù (ÀÎÀÚ·Î ¹ŞÀº ÄÄÆ÷³ÍÆ® »ç¿ë)
+	// 2. ì•¡ì…˜ ë°”ì¸ë”©
 	const UInputAction* InventoryAction = InputData->FindInputActionByTag(AZGameplayTags::Input_Action_Inventory);
     if (InventoryAction)
     {
@@ -253,7 +253,7 @@ void UAZPlayerInventoryComponent::ToggleInventory()
 	if (PC->InventoryWidget == nullptr)
 		return;
 
-	if (PC->InventoryWidget->GetVisibility() == ESlateVisibility::Visible) //ÇÃ·¹ÀÌ¾î ÀÎº¥Åä¸®UI°¡ ÄÑÁ®ÀÖÀ» ¶§
+	if (PC->InventoryWidget->GetVisibility() == ESlateVisibility::Visible) //í”Œë ˆì´ì–´ ì¸ë²¤í† ë¦¬UIê°€ ì¼œì ¸ìˆì„ ë•Œ
 	{
 		FInputModeGameOnly InputModeGameOnly;
 		PC->SetInputMode(InputModeGameOnly);
@@ -262,7 +262,7 @@ void UAZPlayerInventoryComponent::ToggleInventory()
 		if (PC->InventoryWidget->LootInventoryGrid->GetVisibility() == ESlateVisibility::Visible)
 		{
 			PC->InventoryWidget->LootInventoryGrid->ItemsCanvasPanel->ClearChildren();
-			PC->InventoryWidget->LootInventoryGrid->SetVisibility(ESlateVisibility::Collapsed); //»óÀÚ ÀÎº¥Åä¸®¸¦ ¼û±â±â
+			PC->InventoryWidget->LootInventoryGrid->SetVisibility(ESlateVisibility::Collapsed); //ìƒì ì¸ë²¤í† ë¦¬ë¥¼ ìˆ¨ê¸°ê¸°
 		}
 
 		if (PC->InventoryWidget->SelectedInventoryVerticalBox->GetVisibility() == ESlateVisibility::Visible)

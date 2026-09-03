@@ -34,4 +34,5 @@ Unreal Engine 5.5.4, C++ 로 개발한 팀 프로젝트 AshZero 중, 제가 담�
 
 ## 데모
 
-- 플레이 영상: (포트폴리오 PDF 내 링크 참고)
+- 플레이 영상: https://www.youtube.com/watch?v=-YPkLUmVxZU
+- 인벤토리/아이템 시스템 시연: https://youtu.be/9ZnosTK6mdQ

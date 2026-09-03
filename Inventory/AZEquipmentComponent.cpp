@@ -365,13 +365,9 @@ void UAZEquipmentComponent::EquipItem_Server_Implementation(EEquipmentSlot SlotT
 		}
 	}
 
-	// 여기부터는 InventoryComponent를 실제로 사용합니다. 이 플레이어가 접근 가능한
-	// 컴포넌트(본인 인벤토리/창고/열린 상자/소지 가방)인지 확인합니다. 이 검사가 없으면
-	// 클라이언트가 다른 플레이어의 인벤토리 컴포넌트를 넘겨 그쪽 슬롯을 조작할 수 있습니다.
 	AAZPlayerController* OwnerPC = Cast<AAZPlayerController>(GetOwner());
 	if (!OwnerPC || !OwnerPC->IsInventoryComponentAccessible(InventoryComponent))
 	{
-		PRINT_LOG(TEXT("[AntiCheat] EquipItem_Server: 접근 불가능한 InventoryComponent 요청 - 거부"));
 		return;
 	}
 

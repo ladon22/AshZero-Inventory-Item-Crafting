@@ -101,8 +101,6 @@ void UAZStoreWidget::UpdateStoreList()
 
 void UAZStoreWidget::OnQuantityConfirmed(int32 TargetID, int32 Quantity, EAZTradeMode TradeMode)
 {
-    // 재화/아이템 변경은 반드시 서버에서 처리되어야 하므로, 로컬에서 바로 StoreSubsystem을
-    // 호출하지 않고 소유 PlayerController의 ServerRPC를 통해 요청만 보냅니다.
     AAZPlayerController* AZPC = Cast<AAZPlayerController>(GetOwningPlayer());
     if (AZPC == nullptr) return;
 
